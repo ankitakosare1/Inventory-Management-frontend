@@ -43,7 +43,7 @@
 .dashboard-rows {
     display: grid;
     grid-template-columns: 2fr 1fr;
-    align-items: stretch;
+    align-items: start;
     gap: 12px;
     /* margin-bottom: 10px; */
 }
@@ -57,8 +57,6 @@
 
 .groupA .card,
 .groupB .card {
-    display: flex;
-    flex-direction: column;
     height: 100%;
 }
 
