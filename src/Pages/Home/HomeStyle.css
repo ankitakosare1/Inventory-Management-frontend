@@ -1,0 +1,293 @@
+.home-container {
+    display: flex;
+    min-height: 100vh;
+    background: #3E3D53;
+}
+
+.home-content {
+    flex: 1;
+    padding: 20px;
+    color: #222;
+    display: flex;
+    flex-direction: column;
+}
+
+/* Header */
+.product-header {
+    display: flex;
+    align-items: center;
+}
+
+.product-heading {
+    color: #ffffff;
+    font-size: 18px;
+    font-weight: 500;
+    line-height: 24px;
+    margin: 0;
+    display: flex;
+    align-items: center;
+    height: 32px;
+}
+
+/* Divider that connects to sidebar  */
+.divider-from-sidebar {
+    width: calc(100% + 40px);
+    height: 1px;
+    background: #AFAFAF;
+    margin-left: -20px;
+    margin-bottom: 10px;
+}
+
+
+/* ------------------------ */
+.dashboard-rows {
+    display: grid;
+    grid-template-columns: 2fr 1fr;
+    align-items: start;
+    gap: 12px;
+    /* margin-bottom: 10px; */
+}
+
+.groupA,
+.groupB {
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+}
+
+.groupA .card,
+.groupB .card {
+    height: 100%;
+}
+
+/* Match heights row by row */
+.groupA .card:nth-child(1),
+.groupB .card:nth-child(1) {
+    min-height: 100px;
+    /* ensures Sales Overview matches Inventory Summary */
+}
+
+.groupA .card:nth-child(2),
+.groupB .card:nth-child(2) {
+    min-height: 100px;
+    /* ensures Purchase Overview matches Product Summary */
+}
+
+.card {
+    background: #ffffff;
+    border-radius: 10px;
+    padding: 7px 16px;
+    display: flex;
+    flex-direction: column;
+    gap: 6px;
+}
+
+.card h3 {
+    font-size: 14px;
+    font-weight: 500;
+    color: #222222;
+}
+
+
+.card1 {
+    grid-column: 1;
+}
+
+
+.card2 {
+    grid-column: 2;
+}
+
+.sales-metrics {
+    display: flex;
+    justify-content: space-between;
+}
+
+.metrics {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 4px;
+}
+
+.metrics img {
+    width: 20px;
+    height: 20px;
+}
+
+.value-label {
+    display: flex;
+    align-items: flex-start;
+    gap: 6px;
+}
+
+.value {
+    font-size: 13px;
+    font-weight: 600;
+    color: #000000;
+}
+
+.label {
+    font-size: 13px;
+    font-weight: 400;
+    color: #6c6c6c;
+}
+
+/* Desktop layout visible by default */
+.desktop-layout {
+    display: block;
+}
+
+.mobile-layout {
+    display: none;
+}
+
+/* ----------- Mobile View ----------- */
+
+/* ------------------------ */
+/* 1400px screen size tweaks */
+/* @media (max-width: 1200px) {
+  .desktop-layout {
+    display: none;
+  }
+
+  .mobile-layout {
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
+  }
+
+  .product-heading {
+    display: none; 
+  }
+
+  .divider-from-sidebar {
+    display: none;
+  }
+
+  .dashboard-rows {
+    grid-template-columns: 1fr; 
+  }
+} */
+
+
+/* Up to 768px (tablet portrait) */
+@media (max-width: 768px) {
+
+    /* Hide desktop stuff */
+    .desktop-layout {
+        display: none;
+    }
+
+    /* Show mobile stack */
+    .mobile-layout {
+        display: flex;
+        flex-direction: column;
+        gap: 16px;
+        height: 100%;
+    }
+
+    html,
+    body,
+    .home-container {
+        min-height: 100vh;
+        background: #3E3D53;
+        /* keep solid bg */
+    }
+
+    .mobile-layout .card,
+    .mobile-layout .chart-card {
+        flex: 1;
+        min-height: 280px;
+        display: flex;
+        flex-direction: column;
+    }
+
+    .mobile-layout .sales-metrics {
+        flex: 1;
+    }
+
+    .home-content {
+        min-height: 100%;
+        background: transparent;
+    }
+
+    .dashboard-rows {
+        grid-template-columns: 1fr;
+        gap: 16px;
+    }
+
+    .product-heading {
+        display: none;
+        /* no "Home" heading */
+    }
+
+    .divider-from-sidebar {
+        display: none;
+    }
+}
+
+/* Up to 480px (mobile → follow Figma exactly) */
+@media (max-width: 480px) {
+
+    /* Hide desktop stuff */
+    .desktop-layout {
+        display: none;
+    }
+
+    /* Show mobile stack */
+    .mobile-layout {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 12px;
+    }
+
+    html,
+    body,
+    .home-container {
+        min-height: 100vh;
+        background: #3E3D53;
+    }
+
+    .mobile-layout .card,
+    .mobile-layout .chart-card {
+        flex: 1;
+        min-height: 260px;
+        display: flex;
+        flex-direction: column;
+    }
+
+    /* First two (Sales + Revenue) side by side */
+    .mobile-layout .sales-metrics .value-label:nth-child(1),
+    .mobile-layout .sales-metrics .value-label:nth-child(2) {
+        flex: 1 1 50%;
+        display: flex;
+        justify-content: space-between;
+    }
+
+    /* Next two (Profit + Cost) stacked full width */
+    .mobile-layout .sales-metrics .value-label:nth-child(3),
+    .mobile-layout .sales-metrics .value-label:nth-child(4) {
+        flex: 1 1 100%;
+        display: flex;
+        justify-content: space-between;
+    }
+
+    .home-content {
+        min-height: 100%;
+        background: transparent;
+    }
+
+    .dashboard-rows {
+        grid-template-columns: 1fr;
+        gap: 12px;
+    }
+
+    .product-heading {
+        display: none;
+    }
+
+    .divider-from-sidebar {
+        display: none;
+    }
+}

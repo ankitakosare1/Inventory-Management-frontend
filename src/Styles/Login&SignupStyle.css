@@ -1,0 +1,258 @@
+.container{
+    display: flex;
+    height: 100vh;
+    width: 100%;
+    background: #1A1E28;
+}
+
+/* Left Side */
+.left-side{
+    background-color: #EDEDED;
+    width: 35%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 0 20px 20px 0;
+}
+
+.login-box{
+    background: transparent;
+    border-radius: 0 20px 20px 0;
+    width: 320px;
+}
+
+.login-box h2{
+    font-size: 22px;
+    font-weight: 600;
+    margin-bottom: 5px;
+    color: #111;
+}
+
+.subtitle{
+    font-size: 14px;
+    color: #666;
+    margin-bottom: 20px;
+}
+
+.login-box label{
+    display: block;
+    font-size: 14px;
+    font-weight: 400;
+    margin: 15px 0 5px;
+}
+
+.login-box input{
+    width: 100%;
+    padding: 12px;
+    border-radius: 8px;
+    border: 1px solid #ccc;
+    outline: none;
+    font-size: 14px;
+}
+
+.password-wrapper{
+    position: relative;
+}
+
+.password-wrapper input{
+    width: 100%;
+}
+
+.eye-icon{
+    position: absolute;
+    top: 50%;
+    right: 12px;
+    transform: translateY(-50%);
+    cursor: pointer;
+    font-size: 16px;
+    color: #777;
+}
+
+.forgot-row{
+    text-align: right;
+    margin-top: 12px;
+}
+
+.forgot-row a{
+    font-size: 14px;
+    color: #3366FF;
+}
+
+form button{
+    width: 100%;
+    margin-top: 20px;
+    padding: 12px;
+    background: #1a1a1a;
+    color: white;
+    font-size: 15px;
+    font-weight: 500;
+    border: none;
+    border-radius: 8px;
+    cursor: pointer;
+}
+
+.signup-text{
+    font-size: 14px;
+    margin-top: 25px;
+    color: #444;
+}
+
+.signup-text a{
+    color: #3366FF;
+}
+
+
+/* Right Side */
+.login-right{
+    width: 65%;
+    max-width: 1000px;       
+    color: #fff;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding-top: 50px;
+    
+}
+
+.heading-row{
+    display: flex;
+    align-items:center;
+    justify-content: space-between;
+    width: 100%;
+    max-width: 500px;
+    margin-bottom: 40px;
+}
+
+.heading-text{
+    margin-right: 20px;
+}
+
+.heading-text h1{
+    font-size: 32px;
+    font-weight: 600;
+    margin: 0;
+}
+
+.pie-image img{
+    width: 70px;
+    height: 70px;
+}
+
+.group-image{
+    width: 100%;
+    display: flex;
+    justify-content: center;
+}
+
+.group-image img{
+    width: 100%;
+    /* max-width: 800px; */
+    height: 350px;
+    object-fit: contain;
+}
+
+/* Spinner */
+.spinner {
+    width: 18px;
+    height: 18px;
+    border: 2px solid #fff;
+    border-top: 2px solid transparent;
+    border-radius: 50%;
+    display: inline-block;
+    animation: spin 0.8s linear infinite;
+    vertical-align: middle;
+}
+
+/* ================= Tablet View (max-width: 1200px) ================= */
+@media (max-width: 1200px) {
+  .container {
+    flex-direction: column;
+    height: 100vh;         /* Always fill screen */
+    min-height: 100vh;
+  }
+
+  .left-side {
+    width: 100%;
+    border-radius: 0;
+    padding: 40px 20px;
+    height: 100vh;         /* Take full height */
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+
+  .login-box {
+    width: 100%;
+    max-width: 400px;
+    margin: 0 auto;
+  }
+
+  /* Hide right section completely */
+  .login-right {
+    display: none !important;
+  }
+}
+
+/* ================= Mobile View (max-width: 768px) ================= */
+@media (max-width: 768px) {
+  .container {
+    flex-direction: column;
+    height: 100vh;        /* Ensure full screen */
+    min-height: 100vh;
+  }
+
+  .left-side {
+    width: 100%;
+    border-radius: 0;
+    padding: 30px 20px;
+    height: 100vh;        /* Fill screen height */
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+
+  .login-box {
+    width: 100%;
+    max-width: 350px;
+    margin: 0 auto;
+  }
+
+  .login-box h2 {
+    font-size: 20px;
+    text-align: center;
+  }
+
+  .subtitle {
+    text-align: center;
+    margin-bottom: 25px;
+  }
+
+  form button {
+    font-size: 14px;
+    padding: 10px;
+  }
+
+  .signup-text {
+    text-align: center;
+  }
+
+  /* Ensure right side hidden */
+  .login-right {
+    display: none !important;
+  }
+}
+
+/* ================= Very Small Screens (max-width: 480px) ================= */
+@media (max-width: 480px) {
+  .login-box {
+    max-width: 300px;
+  }
+
+  .login-box h2 {
+    font-size: 18px;
+  }
+
+  .heading-text h1 {
+    font-size: 22px;
+  }
+}

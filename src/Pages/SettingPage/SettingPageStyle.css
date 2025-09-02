@@ -1,0 +1,499 @@
+.settings-page {
+    display: flex;
+    min-height: 100vh;
+    background: #3E3D53;
+}
+
+.settings-content {
+    flex: 1;
+    padding: 20px;
+    color: #222;
+}
+
+/* Header and divider from sidebar */
+.settings-heading {
+    color: #ffffff;
+    font-size: 18px;
+    font-weight: 500;
+    line-height: 24px;
+    margin: 0;
+    display: flex;
+    align-items: center;
+    height: 32px;
+
+}
+
+/* small line that will connects to sidebar */
+.divider-from-sidebar {
+    /* width: 100%; */
+    width: calc(100% + 40px);
+    height: 1px;
+    background: #AFAFAF;
+    margin-left: -20px;
+    margin-bottom: 10px;
+}
+
+.setting-layout {
+    background: #ffffff;
+    padding: 10px;
+}
+
+/* tabs */
+.tabs {
+    display: flex;
+    border-bottom: 1px solid #BFBFBF;
+}
+
+.tab {
+    padding: 10px 14px;
+    cursor: pointer;
+    font-size: 14px;
+    font-weight: 500;
+    text-align: center;
+    background: transparent;
+    border: none;
+    border-bottom: 2px solid transparent;
+}
+
+.tab.active {
+    border-bottom: 3px solid #3E3D53;
+}
+
+.tab-body {
+    padding: 22px;
+}
+
+.form-row {
+    display: flex;
+    flex-direction: column;
+    gap: 6px;
+    margin-bottom: 5px;
+}
+
+.form-row label {
+    font-size: 13px;
+    color: #444;
+}
+
+.form-row input {
+    padding: 10px 10px;
+    border-radius: 8px;
+    border: 1px solid #ddd;
+    outline: none;
+    width: 50%;
+    /* font-size: 14px; */
+}
+
+.form-row input:focus {
+    border-color: #a2a2a2;
+}
+
+/* disabled email */
+.disabled-input {
+    background: #e0e0e0;
+    color: #7a7a7a;
+    cursor: not-allowed;
+}
+
+/* bottom save row aligned to right */
+.save-row {
+    display: flex;
+    justify-content: flex-end;
+}
+
+.save-btn {
+    padding: 8px 30px;
+    background: #11131a;
+    color: #fff;
+    border-radius: 8px;
+    border: none;
+    cursor: pointer;
+}
+
+.account-management {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+    padding: 10px 0;
+}
+
+.account-section h3 {
+    font-size: 14px;
+    font-weight: 600;
+    color: #333;
+    margin-bottom: 5px;
+}
+
+.account-section p {
+    font-size: 13px;
+    padding: 6px;
+}
+
+.account-item {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    margin-bottom: 36px;
+    padding: 6px;
+}
+
+.account-email {
+    font-size: 14px;
+    color: #333;
+}
+
+.account-dropdown {
+    margin-left: 20px;
+    position: relative;
+    display: inline-flex;
+    align-items: center;
+}
+
+.caret-btn {
+    background: transparent;
+    border: none;
+    cursor: pointer;
+    font-size: 14px;
+    line-height: 1;
+    padding: 2px 6px;
+    color: #5F6472;
+}
+
+.caret-btn:hover {
+    color: #3B3F4A;
+}
+
+/* the small white card */
+.dropdown-card {
+    position: absolute;
+    top: 28px;
+    right: 0;
+    background: #FFFFFF;
+    border: 1px solid #D0D5DD;
+    border-radius: 8px;
+    padding: 6px 10px;
+    box-shadow: 0 2px 8px rgba(16, 24, 40, 0.12);
+    z-index: 10;
+    min-width: 94px;
+}
+
+.dropdown-item {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    background: transparent;
+    border: none;
+    cursor: pointer;
+    padding: 4px 2px;
+}
+
+.dropdown-item:hover {
+    background: #F8F9FB;
+    border-radius: 6px;
+}
+
+.trash-icon {
+    width: 16px;
+    height: 16px;
+    object-fit: contain;
+}
+
+.delete-text {
+    font-size: 12px;
+    font-weight: 500;
+    color: #D95546;
+}
+
+.logout-btn {
+    padding: 8px 30px;
+    background-color: #d95546;
+    color: #fff;
+    border-radius: 12px;
+    border: none;
+    cursor: pointer;
+}
+
+/* ----------- Mobile ----------- */
+.settings-mobile-nav {
+    display: none;
+}
+
+
+/* Tablet landscape */
+@media (max-width: 1200px) {
+    .setting-layout {
+        width: 80%;
+    }
+}
+
+/* Tablet portrait */
+/* ---------- Mobile View (Figma) ---------- */
+@media (max-width: 768px) {
+  /* Page layout */
+  .settings-page {
+    flex-direction: column;
+    background: #3E3D53;
+    min-height: 100vh;
+    padding: 12px;
+    box-sizing: border-box;
+  }
+
+  .settings-content {
+    flex: 1;
+    padding: 0; /* remove desktop padding */
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+  }
+
+  /* Hide big "Settings" heading */
+  .settings-heading {
+    display: none;
+  }
+
+  /* White card background for layout */
+  .setting-layout {
+    background: #ffffff;
+    border-radius: 16px;
+    padding: 16px;
+    width: 100%;
+    box-sizing: border-box;
+  }
+
+  /* Tabs (full width, equal spacing) */
+  .tabs {
+    display: flex;
+    justify-content: space-between;
+    border-bottom: 1px solid #E0E0E0;
+    margin-bottom: 12px;
+  }
+
+  .tab {
+    flex: 1;
+    text-align: center;
+    font-size: 14px;
+    padding: 10px 0;
+  }
+
+  .tab.active {
+    border-bottom: 3px solid #3E3D53;
+  }
+
+  /* Tab body spacing */
+  .tab-body {
+    padding: 10px 0;
+  }
+
+  /* Form inputs */
+  .form-row {
+    margin-bottom: 12px;
+  }
+
+  .form-row label {
+    font-size: 13px;
+    color: #444;
+  }
+
+  .form-row input {
+    width: 100%;
+    font-size: 14px;
+    border-radius: 12px;
+    padding: 12px;
+  }
+
+  /* Save button - full width */
+  .save-row {
+    justify-content: center;
+    margin-top: 16px;
+  }
+
+  .save-btn {
+    width: 100%;
+    border-radius: 12px;
+    padding: 12px;
+    font-size: 15px;
+  }
+
+  /* Account management */
+  .account-management {
+    gap: 16px;
+  }
+
+  .account-item {
+    margin-bottom: 14px;
+    padding: 12px;
+    border-radius: 12px;
+    background: #f7f7f7;
+    justify-content: space-between;
+  }
+
+  .account-email {
+    font-size: 14px;
+    flex: 1;
+  }
+
+  .account-dropdown .dropdown-card {
+    right: 0;
+    top: 34px;
+  }
+
+  /* Logout button */
+  .logout-btn {
+    width: 100%;
+    border-radius: 12px;
+    padding: 12px;
+    font-size: 15px;
+  }
+
+  /* Sidebar hidden */
+  .app-sidebar {
+    display: none;
+  }
+
+  /* Add bottom padding so content not hidden behind nav */
+  .settings-content {
+    padding-bottom: 60px;
+  }
+
+  /* Show mobile nav */
+  .settings-mobile-nav {
+    display: block;
+  }
+}
+
+
+/* Mobile (Figma ditto) */
+/* ---------- Mobile View (Figma) ---------- */
+@media (max-width: 480px) {
+  /* Page layout */
+  .settings-page {
+    flex-direction: column;
+    background: #3E3D53;
+    min-height: 100vh;
+    padding: 12px;
+    box-sizing: border-box;
+  }
+
+  .settings-content {
+    flex: 1;
+    padding: 0; /* remove desktop padding */
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+  }
+
+  /* Hide big "Settings" heading */
+  .settings-heading {
+    display: none;
+  }
+
+  /* White card background for layout */
+  .setting-layout {
+    background: #ffffff;
+    border-radius: 16px;
+    padding: 16px;
+    width: 100%;
+    box-sizing: border-box;
+  }
+
+  /* Tabs (full width, equal spacing) */
+  .tabs {
+    display: flex;
+    justify-content: space-between;
+    border-bottom: 1px solid #E0E0E0;
+    margin-bottom: 12px;
+  }
+
+  .tab {
+    flex: 1;
+    text-align: center;
+    font-size: 14px;
+    padding: 10px 0;
+  }
+
+  .tab.active {
+    border-bottom: 3px solid #3E3D53;
+  }
+
+  /* Tab body spacing */
+  .tab-body {
+    padding: 10px 0;
+  }
+
+  /* Form inputs */
+  .form-row {
+    margin-bottom: 12px;
+  }
+
+  .form-row label {
+    font-size: 13px;
+    color: #444;
+  }
+
+  .form-row input {
+    width: 100%;
+    font-size: 14px;
+    border-radius: 12px;
+    padding: 12px;
+  }
+
+  /* Save button - full width */
+  .save-row {
+    justify-content: center;
+    margin-top: 16px;
+  }
+
+  .save-btn {
+    width: 100%;
+    border-radius: 12px;
+    padding: 12px;
+    font-size: 15px;
+  }
+
+  /* Account management */
+  .account-management {
+    gap: 16px;
+  }
+
+  .account-item {
+    margin-bottom: 14px;
+    padding: 12px;
+    border-radius: 12px;
+    background: #f7f7f7;
+    justify-content: space-between;
+  }
+
+  .account-email {
+    font-size: 14px;
+    flex: 1;
+  }
+
+  .account-dropdown .dropdown-card {
+    right: 0;
+    top: 34px;
+  }
+
+  /* Logout button */
+  .logout-btn {
+    width: 100%;
+    border-radius: 12px;
+    padding: 12px;
+    font-size: 15px;
+  }
+
+  /* Sidebar hidden */
+  .app-sidebar {
+    display: none;
+  }
+
+  /* Add bottom padding so content not hidden behind nav */
+  .settings-content {
+    padding-bottom: 60px;
+  }
+
+  /* Show mobile nav */
+  .settings-mobile-nav {
+    display: block;
+  }
+}
+

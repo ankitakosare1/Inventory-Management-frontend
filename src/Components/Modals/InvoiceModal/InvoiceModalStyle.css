@@ -1,0 +1,184 @@
+/* Overlay */
+.iv-overlay {
+    position: fixed;
+    inset: 0;
+    background: rgba(0, 0, 0, 0.1);
+    backdrop-filter: blur(2px);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    left: 220px;
+}
+
+/* Floating action buttons on the right side of the invoice (top-right) */
+.iv-floater {
+    position: absolute;
+    right: calc(50% - 280px);
+    top: 50px;
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+
+.iv-fab {
+    width: 34px;
+    height: 34px;
+    border-radius: 50%;
+    border: none;
+    cursor: pointer;
+    display: grid;
+    place-items: center;
+}
+
+.iv-red {
+    background: #ff654f;
+}
+
+.iv-blue {
+    background: #49a8ff;
+}
+
+.iv-amber {
+    background: #ffd166;
+}
+
+/* Paper */
+.iv-paper {
+    background: #fff;
+    padding: 18px 28px 26px;
+    border-radius: 14px;
+    color: #1a1a1a;
+}
+
+.iv-title {
+    font-size: 18px;
+    font-weight: 600;
+    margin-bottom: 14px;
+}
+
+.iv-billed-layout {
+    font-size: 12px;
+}
+
+.iv-billed {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+    margin-bottom: 24px;
+}
+
+.iv-bold {
+    font-weight: 700;
+    margin-bottom: 8px;
+}
+
+.iv-dim {
+    color: #7d7d7d;
+    line-height: 1.4;
+}
+
+.iv-right-line {
+    text-align: right;
+    color: #575757;
+    line-height: 1.4;
+}
+
+/* Left data + Right Table */
+.iv-main {
+    display: grid;
+    grid-template-columns: 140px 1fr;
+    gap: 24px;
+    font-size: 12px;
+}
+
+/* .iv-meta{
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+} */
+
+.iv-meta-block {
+    margin-bottom: 20px;
+}
+
+.iv-label {
+    font-weight: 600;
+    margin-bottom: 4px;
+}
+
+.iv-value {
+    color: #575757;
+}
+
+/* Table */
+.iv-table-wrap {
+    background: #ffffff;
+    overflow: hidden;
+}
+
+.iv-table {
+    width: 100%;
+    border-collapse: collapse;
+    border: 1px solid #e9e9e9;
+}
+
+.iv-table thead th {
+    text-align: left;
+    background: #f7f7f9;
+    padding: 8px 14px;
+    color: #3b3b3b;
+    border-bottom: 1px solid #e9e9e9;
+}
+
+.iv-table tbody td {
+    padding: 8px 14px;
+    border-bottom: 1px solid #efefef;
+}
+
+.iv-subcell {
+    font-weight: 600;
+}
+
+.iv-right {
+    text-align: right;
+}
+
+.iv-total-row td {
+    border-top: 1px solid #e2e2e2;
+    padding-top: 16px;
+    padding-bottom: 16px;
+}
+
+.iv-total-text {
+    color: #18a0a6;
+    font-weight: 800;
+}
+
+.iv-total-amt {
+    text-align: right;
+    color: #18a0a6;
+    font-weight: 800;
+}
+
+/* Note */
+.iv-note {
+    font-size: 12px;
+    display: flex;
+    align-items: center;
+    gap: 4px;
+    color: #7b7b7b;
+}
+
+.iv-quote {
+    font-size: 18px;
+}
+
+.iv-footer {
+    font-size: 12px;
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+    color: #6b6b6b;
+    border-top: 1px solid #efefef;
+    padding-top: 12px;
+    margin-top: 12px;
+}

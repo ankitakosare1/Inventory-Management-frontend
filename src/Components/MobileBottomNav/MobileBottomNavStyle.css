@@ -1,0 +1,23 @@
+.mobile-bottom-nav {
+  display: none;
+}
+
+@media (max-width: 480px) {
+  .mobile-bottom-nav {
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    background: #262533; /* figma bottom nav bg */
+    padding: 10px 0;
+    position: fixed;
+    bottom: 0;
+    width: 100%;
+    z-index: 1000;
+  }
+
+  .mobile-bottom-nav img {
+    width: 24px;
+    height: 24px;
+    cursor: pointer;
+  }
+}

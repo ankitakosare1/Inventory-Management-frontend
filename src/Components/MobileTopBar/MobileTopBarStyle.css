@@ -1,0 +1,27 @@
+.mobile-topbar {
+  display: none;
+}
+
+@media (max-width: 480px) {
+  .mobile-topbar {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background: #3E3D53; 
+    padding: 10px 14px;
+    position: sticky;
+    top: 0;
+    z-index: 1000;
+  }
+
+  .mobile-topbar .topbar-logo {
+    width: 28px;
+    height: 28px;
+  }
+
+  .mobile-topbar .topbar-setting {
+    width: 24px;
+    height: 24px;
+    cursor: pointer;
+  }
+}

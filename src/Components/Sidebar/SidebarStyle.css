@@ -1,0 +1,83 @@
+.app-sidebar{
+    width: 220px;
+    background: #262533;
+    color: #fff;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    padding: 10px 10px;
+    height: 100vh;
+}
+
+.sidebar-top{
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+}
+
+.logo-circle{
+    margin-bottom: 8px;
+}
+
+.logo-circle img{
+    width: 30px;
+    height: 30px;
+}
+
+.separator-line{
+    /* width: 100%; */
+    width: calc(100% + 20px);
+    height: 1px;
+    background: #444155;
+    margin-left: -10px;
+    margin-bottom: 10px;
+}
+
+.sidebar-nav{
+    display: flex;
+    flex-direction: column;
+}
+
+.nav-item{
+    border-radius: 6px;
+   color: #c9c7d2;
+   font-size: 14px;
+   display: flex;
+   padding: 8px 8px;
+   gap: 12px;
+}
+
+.nav-item.active{
+    background: #353243;
+    color: #fff;
+    font-weight: 500;
+}
+
+.sidebar-footer{
+    display: flex;
+    /* align-items: center; */
+    gap: 10px;
+    flex-direction: column;
+    padding-top: 10px;
+}
+
+.sidebar-footer .separator-line-footer{
+    width: calc(100% + 20px);
+    height: 1px;
+    background: #444155;
+    margin-left: -10px;
+    margin-bottom: 5px;
+}
+
+.profile-dot{
+    width: 26px;
+    height: 26px;
+    border-radius: 50%;
+    background: #cfeff0;
+}
+
+.profile-name{
+    font-size: 14px;
+    color: #dfe7eb
+}
+
