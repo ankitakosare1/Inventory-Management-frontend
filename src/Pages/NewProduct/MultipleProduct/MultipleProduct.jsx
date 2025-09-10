@@ -65,7 +65,13 @@ const MultipleProduct = ({ onClose, onUploaded }) => {
   };
 
   return (
-    <div className="modal-overlay" onClick={onClose}>
+    <div className="modal-overlay" onClick={() => {
+      if(file){
+        onUpload();
+      }else{
+        onClose();
+      }
+    }}>
       <div
         className="modal-card"
         onClick={(e) => e.stopPropagation()}

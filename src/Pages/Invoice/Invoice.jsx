@@ -1,6 +1,6 @@
 import React, { useState, useMemo, useEffect, useRef } from 'react'
 
-import '../Product/ProductStyle.css'
+
 import './InvoiceStyle.css'
 
 import Sidebar from '../../Components/Sidebar/Sidebar'
@@ -101,17 +101,17 @@ const Invoice = () => {
   const nextDisabled = useMemo(() => page >= totalPages, [page, totalPages]);
 
   return (
-    <div className='product-page'>
+    <div className='invoice-page'>
       <Sidebar />
 
       <div className="mobile-only">
         <MobileTopBar />
       </div>
 
-      <div className='product-content'>
+      <div className='invoice-content'>
         {/* Header */}
-        <div className='product-header'>
-          <p className='product-heading'>Invoice</p>
+        <div className='invoice-header'>
+          <p className='invoice-heading'>Invoice</p>
 
           <div className='search-wrap'>
             <span className='search-icon'> <img src={searchIcon} alt='SearchIcon' /> </span>
@@ -127,35 +127,35 @@ const Invoice = () => {
         <div className='divider-from-sidebar' />
 
         {/* Overall Invoice Card */}
-        <div className='overall-card'>
-          <p className='card-heading'>Overall Invoice</p>
-          <div className='card-row'>
+        <div className='overall-card-invoice'>
+          <p className='card-heading-invoice'>Overall Invoice</p>
+          <div className='card-row-invoice'>
 
-            <div className='metric'>
-              <div className='metric-title'>Recent Transactions</div>
-              <div className='metric-value'>{stats?.recentTransactions ?? 0}</div>
-              <div className='metric-sub'>Last 7 days</div>
+            <div className='metric-invoice'>
+              <div className='metric-title-invoice'>Recent Transactions</div>
+              <div className='metric-value-invoice'>{stats?.recentTransactions ?? 0}</div>
+              <div className='metric-sub-invoice'>Last 7 days</div>
             </div>
 
             <div className='v-sep' />
 
-            <div className='metric'>
-              <div className='metric-title'>Total Invoices</div>
-              <div className='metric-flex'>
+            <div className='metric-invoice'>
+              <div className='metric-title-invoice'>Total Invoices</div>
+              <div className='metric-flex-invoice'>
                 <div>
-                  <div className='metric-value'>
+                  <div className='metric-value-invoice'>
                     {stats?.totalInvoices ?? 0}
                   </div>
-                  <div className='metric-sub'>
+                  <div className='metric-sub-invoice'>
                     Last 7 days
                   </div>
                 </div>
 
                 <div>
-                  <div className='metric-value'>
+                  <div className='metric-value-invoice'>
                     {stats?.processed ?? 0}
                   </div>
-                  <div className='metric-sub'>
+                  <div className='metric-sub-invoice'>
                     Processed
                   </div>
                 </div>
@@ -164,23 +164,23 @@ const Invoice = () => {
 
             <div className='v-sep' />
 
-            <div className='metric'>
-              <div className='metric-title'>Paid Amount</div>
-              <div className='metric-flex'>
+            <div className='metric-invoice'>
+              <div className='metric-title-invoice'>Paid Amount</div>
+              <div className='metric-flex-invoice'>
                 <div>
-                  <div className='metric-value'>
+                  <div className='metric-value-invoice'>
                     ₹{(stats?.paidAmount ?? 0).toLocaleString()}
                   </div>
-                  <div className='metric-sub'>
+                  <div className='metric-sub-invoice'>
                     Last 7 days
                   </div>
                 </div>
 
                 <div>
-                  <div className='metric-value'>
+                  <div className='metric-value-invoice'>
                     {stats?.customers ?? 0}
                   </div>
-                  <div className='metric-sub'>
+                  <div className='metric-sub-invoice'>
                     Customers
                   </div>
                 </div>
@@ -189,23 +189,23 @@ const Invoice = () => {
 
             <div className='v-sep' />
 
-            <div className='metric'>
-              <div className='metric-title'>Unpaid Amount</div>
-              <div className='metric-flex'>
+            <div className='metric-invoice'>
+              <div className='metric-title-invoice'>Unpaid Amount</div>
+              <div className='metric-flex-invoice'>
                 <div>
-                  <div className='metric-value'>
+                  <div className='metric-value-invoice'>
                     ₹{(stats?.unpaidAmount ?? 0).toLocaleString()}
                   </div>
-                  <div className='metric-sub'>
+                  <div className='metric-sub-invoice'>
                     Ordered
                   </div>
                 </div>
 
                 <div>
-                  <div className='metric-value'>
+                  <div className='metric-value-invoice'>
                     {stats?.pending ?? 0}
                   </div>
-                  <div className='metric-sub'>
+                  <div className='metric-sub-invoice'>
                     Pending Payment
                   </div>
                 </div>
@@ -216,13 +216,13 @@ const Invoice = () => {
         </div>
 
         {/* Invoice Table */}
-        <div className='table-card'>
-          <div className='table-head-row'>
-            <div className='table-title'>Invoices List</div>
+        <div className='table-card-invoice desktop-only'>
+          <div className='table-head-row-invoice'>
+            <div className='table-title-invoice'>Invoices List</div>
           </div>
 
-          <div className='table-scroll'>
-            <table className='product-table'>
+          <div className='table-scroll-invoice'>
+            <table className='invoice-table'>
               <thead>
                 <tr>
                   <th>Invoice ID</th>
@@ -294,7 +294,7 @@ const Invoice = () => {
                   !loading && items.length === 0 && (
                     <tr>
                       <td colSpan="5" className="empty-cell">
-                        No Products found
+                        No Invoices found
                       </td>
                     </tr>
                   )
@@ -326,6 +326,78 @@ const Invoice = () => {
             </button>
           </div>
 
+        </div>
+
+        {/* ----------- Mobile Only ---------- */}
+        <div className='table-card-invoice mobile-only'>
+          <div className='table-head-row-invoice'>
+            <div className='table-title-invoice'>Invoices List</div>
+          </div>
+
+          <div className='table-scroll-invoice'>
+            <table className='invoice-table mobile-invoice-table'>
+              <thead>
+                <tr>
+                  <th>Invoice ID</th>
+                  <th>Actions</th>
+                </tr>
+              </thead>
+              <tbody>
+                {items.map((inv) => (
+                  <tr key={inv._id}>
+                    <td>{inv.invoiceId}</td>
+                    <td className='action-cell'>
+                      {inv.status === "Paid" ? (
+                        <>
+                          <img
+                            src={eyeIcon}
+                            alt="view"
+                            className="mobile-icon"
+                            onClick={() => setViewingId(inv._id)}
+                          />
+                          <img
+                            src={trashIcon}
+                            alt="delete"
+                            className="mobile-icon"
+                            onClick={() => handleDelete(inv._id)}
+                          />
+                        </>
+                      ) : (
+                        <img
+                          src={eyeIcon}
+                          alt="paid"
+                          className="mobile-icon"
+                          onClick={() => handleMarkPaid(inv._id)}
+                        />
+                      )}
+                    </td>
+                  </tr>
+                ))}
+              </tbody>
+            </table>
+          </div>
+
+          <div className='pager-row'>
+            <button
+              className='pager-btn'
+              disabled={prevDisabled}
+              onClick={() => loadInvoices({ page: page - 1, limit, q })}
+            >
+              Previous
+            </button>
+
+            <div className='pager-info'>
+              Page {page} of {totalPages}
+            </div>
+
+            <button
+              className='pager-btn'
+              disabled={nextDisabled}
+              onClick={() => loadInvoices({ page: page + 1, limit, q })}
+            >
+              Next
+            </button>
+          </div>
         </div>
 
         {viewingId && (

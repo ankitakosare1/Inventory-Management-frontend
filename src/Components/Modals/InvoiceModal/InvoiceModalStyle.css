@@ -182,3 +182,38 @@
     padding-top: 12px;
     margin-top: 12px;
 }
+
+/* --------------------
+   Mobile Overrides
+   -------------------- */
+@media (max-width: 768px) {
+  .iv-overlay {
+    left: 0;                /* remove desktop sidebar offset */
+    padding: 12px;          /* some breathing space */
+    align-items: center;    /* vertically center */
+    justify-content: center;/* horizontally center */
+  }
+
+  .iv-paper {
+    width: 100%;            /* take full width */
+    max-width: 95%;         /* small margin on both sides */
+    height: auto;
+    max-height: 90vh;       /* prevent overflow */
+    overflow-y: auto;       /* scroll if content is large */
+    border-radius: 10px;
+  }
+
+  .iv-floater {
+    position: fixed;        /* keep actions visible */
+    right: 16px;
+    top: 16px;
+    flex-direction: row;    /* icons in a row on mobile */
+    gap: 8px;
+    z-index: 1001;
+  }
+
+  .iv-fab {
+    width: 32px;
+    height: 32px;
+  }
+}

@@ -24,4 +24,14 @@ export const fetchTopProducts = async () => {
   return res.data;
 };
 
+// Dashboard layout
+export const fetchDashboardLayout = async () => {
+  const res = await axiosInstance.get("/api/dashboard/layout");
+  return res.data;
+};
+
+export const saveDashboardLayout = async (layout) => {
+  const res = await axiosInstance.post("/api/dashboard/layout", layout);
+  return res.data;
+};
 

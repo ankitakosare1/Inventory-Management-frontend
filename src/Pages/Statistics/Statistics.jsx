@@ -31,7 +31,14 @@ const Statistics = () => {
     getStats();
   }, []);
 
-  if (!stats) return <div>Loading...</div>;
+  if (!stats) {
+    return (
+      <div className="loading-container">
+        <span className="spinner"></span>
+      </div>
+    );
+  }
+
 
   // Reorder helper
   const handleDrop = (list, setList, dragged, setDragged, dropIndex) => {

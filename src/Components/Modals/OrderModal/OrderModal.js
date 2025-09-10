@@ -10,6 +10,10 @@ const OrderModal = ({ product, onClose, onOrdered }) => {
     const [qty, setQty] = useState(1);
 
     const submit = async () => {
+        if (qty <= 0) { 
+            toast.error("Can't place order for 0 product");
+            return;
+        }
 
         try {
             await orderProduct(product._id, qty);
@@ -31,9 +35,12 @@ const OrderModal = ({ product, onClose, onOrdered }) => {
                         type='number'
                         min={product.quantity === 0 ? 0 : 1}
                         max={product.quantity}
-                        value={product.quantity === 0 ? 0 : qty}
+                        value={qty}
                         disabled={product.quantity === 0}
-                        onChange={(e) => setQty(parseInt(e.target.value || "1", 10))}
+                        onChange={(e) => {
+                            const val = e.target.value;
+                            setQty(val === "" ? "" : parseInt(val, 10));
+                        }}
                         className="modal-input"
                     />
                 </label>

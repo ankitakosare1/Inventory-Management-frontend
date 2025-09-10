@@ -2,7 +2,7 @@ import React, { useEffect, useState } from "react";
 import Sidebar from "../../Components/Sidebar/Sidebar";
 import SalesPurchaseChart from "../../Components/SalesPurchaseChart/SalesPurchaseChart";
 import TopProducts from "../../Components/TopProducts/TopProducts";
-import { fetchDashboardHome } from "../../api/dashboard";
+import { fetchDashboardHome, fetchDashboardLayout, saveDashboardLayout } from "../../api/dashboard";
 import "./HomeStyle.css";
 
 import sales from '../../assets/Sales.png'
@@ -37,23 +37,45 @@ const Home = () => {
       try {
         const homeData = await fetchDashboardHome();
         setData(homeData);
+
+        const layoutData = await fetchDashboardLayout();
+        if (layoutData) {
+          setGroupA(layoutData.groupA || ["sales", "purchase", "salesPurchase"]);
+          setGroupB(layoutData.groupB || ["inventory", "product", "topProducts"]);
+        }
       } catch (err) {
-        console.error("Failed to fetch home data:", err);
+        console.error("Failed to fetch home/layout data:", err);
       }
     };
     getData();
   }, []);
 
-  if (!data) return <div>Loading...</div>;
+  if (!data) {
+    return (
+      <div className="loading-container">
+        <span className="spinner"></span>
+      </div>
+    );
+  }
+
 
   // Reorder helper
-  const handleDrop = (list, setList, dragged, setDragged, dropIndex) => {
+  const handleDrop = async (list, setList, dragged, setDragged, dropIndex, groupName) => {
     if (dragged === null) return;
     const updated = [...list];
     const [moved] = updated.splice(dragged, 1);
     updated.splice(dropIndex, 0, moved);
     setList(updated);
     setDragged(null);
+
+    try {
+      await saveDashboardLayout({
+        groupA: groupName === "A" ? updated : groupA,
+        groupB: groupName === "B" ? updated : groupB,
+      });
+    } catch (err) {
+      console.error("Failed to save layout:", err);
+    }
   };
 
   return (
@@ -81,7 +103,7 @@ const Home = () => {
                   draggable
                   onDragStart={() => setDraggedA(index)}
                   onDragOver={(e) => e.preventDefault()}
-                  onDrop={() => handleDrop(groupA, setGroupA, draggedA, setDraggedA, index)}
+                  onDrop={() => handleDrop(groupA, setGroupA, draggedA, setDraggedA, index, "A")}
                   className="card card1"
                 >
                   {item === "sales" && (
@@ -173,7 +195,7 @@ const Home = () => {
                   draggable
                   onDragStart={() => setDraggedB(index)}
                   onDragOver={(e) => e.preventDefault()}
-                  onDrop={() => handleDrop(groupB, setGroupB, draggedB, setDraggedB, index)}
+                  onDrop={() => handleDrop(groupB, setGroupB, draggedB, setDraggedB, index, "B")}
                   className="card card2"
                 >
                   {item === "inventory" && (
